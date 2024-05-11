@@ -1,3 +1,1 @@
-const message = "Hello world!";
-const messageLength = message.length;
-console.log(messageLength); // 13
+const initial = (arr) => arr.slice(0, -1);
