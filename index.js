@@ -1,20 +1,9 @@
-function detectCycle(head) {
-  let slow = head;
-  let fast = head;
-  let hasCycle = false;
-  while (fast && fast.next) {
-    slow = slow.next;
-    fast = fast.next.next;
-    if (slow === fast) {
-      hasCycle = true;
-      break;
-    }
-  }
-  if (!hasCycle) return null;
-  slow = head;
-  while (slow !== fast) {
-    slow = slow.next;
-    fast = fast.next;
-  }
-  return slow;
-}
+const pullAtIndex = (arr, pullArr) => {
+  let removed = [];
+  let pulled = arr
+    .map((v, i) => (pullArr.includes(i) ? removed.push(v) : v))
+    .filter((v, i) => !pullArr.includes(i));
+  arr.length = 0;
+  pulled.forEach((v) => arr.push(v));
+  return removed;
+};
